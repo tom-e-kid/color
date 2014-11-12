@@ -1,0 +1,2 @@
+module FacadePagesHelper
+end
