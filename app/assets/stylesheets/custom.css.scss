@@ -1,0 +1,44 @@
+@import "bootstrap";
+
+h1 {
+	font-size: 3em;
+	margin-bottom: 30px;
+}
+h2 {
+	font-size: 1.5em;
+	margin-bottom: 30px;
+}
+h1, h2 {
+	font-family: HelveticaNeue-UltraLight;
+	line-height: 1;
+	font-weight: normal;
+	color: #999;
+}
+
+.center {
+	text-align: center;
+
+	.btn {
+		color: #fff;
+	  	background-color: #999;
+	  	border-color: #999;
+	  	border-radius: 0px;
+	}
+	.btn:hover {
+	  	background-color: #555;
+	  	border-color: #555;
+	}
+}
+
+.footer {
+	margin-top: 50px;
+	border-top: 1px solid #eee;
+	color: #999;
+	.creator {
+		float: right;
+		margin-right: 15px;
+	}
+}
+
+
+
