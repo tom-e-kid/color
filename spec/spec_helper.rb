@@ -17,6 +17,7 @@
 
 require 'capybara/rspec'
 require 'rails_helper'
+require 'support/utilities'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
