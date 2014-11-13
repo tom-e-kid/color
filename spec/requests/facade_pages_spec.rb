@@ -7,6 +7,8 @@ describe "facade pages" do
 	describe "home" do
 		before { visit root_path }
 
+		it { should have_title('Color') }
+		it { should_not have_title('| Home') }
 		it { should have_content('Color') }
 		it { should have_link('Sign up') }
 		it { should have_link('Sign in') }
