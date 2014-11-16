@@ -1,5 +1,26 @@
 @import "bootstrap";
 
+/* Mixin */
+
+@mixin box_sizing {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin button_styling {
+	color: #fff;
+  	background-color: #999;
+  	border-color: #999;
+  	border-radius: 0px;
+
+  	&:hover {
+  		background-color: #555;
+  		border-color: #555;
+  	}
+}
+
+/* Universal */
+
 h1, h2 {
 	line-height: 1;
 	font-weight: normal;
@@ -15,19 +36,61 @@ h2 {
 	font-size: 1.5em;
 }
 
+.btn {
+	@include button_styling;
+}
+
 .center {
 	text-align: center;
+}
+
+.color_form {
+	input, textarea, select, .uneditable-input {
+		border: 1px solid #bbb;
+		width: 100%;
+		margin-bottom: 16px;
+		@include box_sizing;
+	}
+
+	input {
+		height: auto !important;
+	}
+
+	label {
+		font-family: HelveticaNeue-Label;
+		font-size: 1.0em;
+		color: #999;
+	}
 
 	.btn {
-		color: #fff;
-	  	background-color: #999;
-	  	border-color: #999;
-	  	border-radius: 0px;
+		@include button_styling;
 	}
-	.btn:hover {
-	  	background-color: #555;
-	  	border-color: #555;
+
+	#error_explanation {
+		color: #f00;
+		ul {
+			list-tyle: none;
+			margin: 0 0 18px 0;
+		}
 	}
+	.field_with_errors {
+		label {
+			color: #f00;
+		}
+		input {
+			border: 1px solid #f00;
+		}
+	}
+}
+
+.gravatar {
+	width: 80px;
+	height: 80px;
+	border-radius: 40px;
+	-webkit-border-radius: 40px;	
+
+	float: left;
+	margin-right: 15px;
 }
 
 .footer {
@@ -40,5 +103,13 @@ h2 {
 	}
 }
 
+/* Debugging */
 
+.debug_dump {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	@include box_sizing;
+}
 
