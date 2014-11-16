@@ -6,20 +6,21 @@
 
 			<%= render 'shared/error_messages' %>
 			
-			<%= f.label :name, "Username" %>
-			<%= f.text_field :name %>
+			<ul>
+				<li><%= f.label :name, "Username" %></li>
+				<li><%= f.text_field :name %></li>
 
-			<%= f.label :email %>
-			<%= f.text_field :email %>
+				<li><%= f.label :email %></li>
+				<li><%= f.text_field :email %></li>
 
-			<%= f.label :password %>
-			<%= f.password_field :password %>
+				<li><%= f.label :password %></li>
+				<li><%= f.password_field :password %></li>
 
-			<%= f.label :password_confirmation, "Confirmation" %>
-			<%= f.password_field :password_confirmation %>
+				<li><%= f.label :password_confirmation, "Confirmation" %></li>
+				<li><%= f.password_field :password_confirmation %></li>
 
-			<%= f.submit "Create my account", class: "btn bnt-primary" %>
-
+				<li><%= f.submit "Create my account", class: "btn bnt-primary" %></li>
+			</ul>
 		<% end %>
 	</div>
 </div>

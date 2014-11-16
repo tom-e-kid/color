@@ -4,7 +4,11 @@
 			<%= link_to "Color", root_path, class: "navbar-brand"  %>
 		</div>
 		<div class="nav navbar-nav navbar-right">
-			<li><%= link_to "Sign in", '#' %></li>
+			<% if signed_in? %>
+				<li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+			<% else %>
+				<li><%= link_to "Sign in", signin_path %></li>
+			<% end %>
 		</div>
 	</div>
 </nav>
