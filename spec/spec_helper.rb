@@ -92,9 +92,14 @@ RSpec.configure do |config|
 
 end
 
-Capybara.configure do |config|
-  config.run_server = false
-  config.default_driver = :selenium
-  config.app_host = 'http://0.0.0.0:3000/' # localhost(rails s)
+Capybara.register_driver :selenium do |app| 
+   profile = Selenium::WebDriver::Firefox::Profile.new 
+   Capybara::Selenium::Driver.new( app, :browser => :firefox, :profile => profile ) 
 end
+
+# Capybara.configure do |config|
+#   config.run_server = false
+#   config.default_driver = :selenium
+#   config.app_host = 'http://0.0.0.0:3000/' # localhost(rails s)
+# end
 
