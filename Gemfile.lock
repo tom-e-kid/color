@@ -59,6 +59,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    faker-japanese (0.0.1)
     ffi (1.9.6)
     hike (1.2.3)
     i18n (0.6.11)
@@ -177,6 +178,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   factory_girl_rails
   faker
+  faker-japanese
   jbuilder (~> 2.0)
   jquery-rails
   nokogiri (= 1.6.0)

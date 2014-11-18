@@ -18,6 +18,15 @@ describe User do
   it { should be_valid }
 
   it { should respond_to(:authenticate) }  
+  it { should_not be_admin }
+
+  context "admin" do
+    before do
+      @user.save!
+      @user.toggle(:admin)
+    end
+  it { should be_admin }
+  end
 
   context "name is not present" do
   	before { @user.name = " " }
