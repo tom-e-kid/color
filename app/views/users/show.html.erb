@@ -1,9 +1,18 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-	<div class="span4">
+	<aside class="span4">
 		<h1>
 			<%= gravatar_for @user %>
 			<%= @user.name %>
 		</h1>
-	</div>
+	</aside>
+  <div class="span8">
+    <% if @user.issues.any? %>
+      <h3>Issues (<%= @user.issues.count %>)</h3>
+      <ol class="issues">
+        <%= render @issues %>
+      </ol>
+      <%= will_paginate @issues %>
+    <% end %>
+  </div>
 </div>

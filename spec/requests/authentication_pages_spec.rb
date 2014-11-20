@@ -85,6 +85,18 @@ describe "Authentication" do
           specify { expect(response).to redirect_to(signin_path) }
         end
       end
+
+      context "in issues controller" do
+        describe "method: create" do
+          before { post issues_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "method: destroy" do
+          before { delete issue_path(FactoryGirl.create(:issue)) }
+          specify { expect(response).to redirect_to(signin_path) }          
+        end
+      end
     end
 
     context "as wrong user" do
