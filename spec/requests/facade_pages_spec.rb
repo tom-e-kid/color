@@ -16,8 +16,8 @@ describe "facade pages" do
     describe "for signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
       before do
-        FactoryGirl.create(:issue, user: user, content: "Lorem ipsum")
-        FactoryGirl.create(:issue, user: user, content: "Dolor sit amet")
+        FactoryGirl.create(:task, user: user, content: "Lorem ipsum")
+        FactoryGirl.create(:task, user: user, content: "Dolor sit amet")
         sign_in user
         visit root_path
       end

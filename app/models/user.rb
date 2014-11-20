@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :issues, dependent: :destroy
+  has_many :tasks, dependent: :destroy
   before_save { email.downcase! }
   before_create :create_remember_token
 
@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   def feed
-    Issue.where("user_id = ?", id)
+    Task.where("user_id = ?", id)
   end
 
   def User.new_remember_token

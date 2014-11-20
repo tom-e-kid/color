@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions,    only: [:new, :create, :destroy]
-  resources :issues,      only: [:create, :destroy]
+  resources :tasks,       only: [:create, :destroy]
 
   root 'facade_pages#home'
   match '/signup',  to: 'users#new',        via: 'get'

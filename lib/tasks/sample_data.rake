@@ -13,7 +13,7 @@ namespace :db do
     users = User.limit(6)
     50.times do
       content = Faker::Lorem.sentence(5)
-      users.each { |user| user.issues.create!(content: content) }
+      users.each { |user| user.tasks.create!(content: content) }
     end
   end
 end

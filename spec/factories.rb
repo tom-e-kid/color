@@ -10,7 +10,7 @@ FactoryGirl.define do
   	end
   end
 
-  factory :issue do
+  factory :task do
     content "Lorem ipsum"
     user
   end

@@ -15,7 +15,7 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
-  it { should respond_to(:issues) }
+  it { should respond_to(:tasks) }
   it { should respond_to(:feed) }
 
   it { should be_valid }
@@ -23,30 +23,30 @@ describe User do
   it { should respond_to(:authenticate) }  
   it { should_not be_admin }
 
-  context "issues" do
+  context "tasks" do
     before { @user.save }
-    let!(:older_issue) { FactoryGirl.create(:issue, user:@user, created_at: 1.day.ago) }
-    let!(:newer_issue) { FactoryGirl.create(:issue, user:@user, created_at: 1.hour.ago) }
+    let!(:older_task) { FactoryGirl.create(:task, user:@user, created_at: 1.day.ago) }
+    let!(:newer_task) { FactoryGirl.create(:task, user:@user, created_at: 1.hour.ago) }
 
-    it "should have the right issues' order" do
-      expect(@user.issues.to_a).to eq [newer_issue, older_issue]
+    it "should have the right tasks' order" do
+      expect(@user.tasks.to_a).to eq [newer_task, older_task]
     end
 
-    it "should destory issues" do
-      issues = @user.issues.to_a
+    it "should destory tasks" do
+      tasks = @user.tasks.to_a
       @user.destroy
-      expect(issues).not_to be_empty
-      issues.each do |issue|
-        expect(Issue.where(id: issue.id)).to be_empty
+      expect(tasks).not_to be_empty
+      tasks.each do |task|
+        expect(Task.where(id: task.id)).to be_empty
       end
     end
 
     describe "status" do
       let(:unfollowed_post) do
-        FactoryGirl.create(:issue, user: FactoryGirl.create(:user))
+        FactoryGirl.create(:task, user: FactoryGirl.create(:user))
       end
-      it { expect(@user.feed).to include(newer_issue) }
-      it { expect(@user.feed).to include(older_issue) }
+      it { expect(@user.feed).to include(newer_task) }
+      it { expect(@user.feed).to include(older_task) }
       it { expect(@user.feed).not_to include(unfollowed_post) }
     end
   end

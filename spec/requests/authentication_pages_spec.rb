@@ -86,14 +86,14 @@ describe "Authentication" do
         end
       end
 
-      context "in issues controller" do
+      context "in tasks controller" do
         describe "method: create" do
-          before { post issues_path }
+          before { post tasks_path }
           specify { expect(response).to redirect_to(signin_path) }
         end
 
         describe "method: destroy" do
-          before { delete issue_path(FactoryGirl.create(:issue)) }
+          before { delete task_path(FactoryGirl.create(:task)) }
           specify { expect(response).to redirect_to(signin_path) }          
         end
       end

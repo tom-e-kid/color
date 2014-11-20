@@ -7,12 +7,12 @@
 		</h1>
 	</aside>
   <div class="span8">
-    <% if @user.issues.any? %>
-      <h3>Issues (<%= @user.issues.count %>)</h3>
-      <ol class="issues">
-        <%= render @issues %>
+    <% if @user.tasks.any? %>
+      <h3>Tasks (<%= @user.tasks.count %>)</h3>
+      <ol class="tasks">
+        <%= render @tasks %>
       </ol>
-      <%= will_paginate @issues %>
+      <%= will_paginate @tasks %>
     <% end %>
   </div>
 </div>
